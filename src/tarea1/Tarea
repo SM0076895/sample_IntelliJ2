@@ -1,0 +1,33 @@
+//Modelo
+
+public class ItemModel{
+    public List<String>getItem(){
+        //Obtener datos desde una fuente (BD, web, etc)
+        return Arrays.asList("Item1", "Item2", "Item3");
+    }
+}
+
+
+//Vista
+
+public class ItemView{
+    void showItems(List<String> items);
+}
+
+
+//Presentador
+
+public class ItemPresenter{
+    private ItemModel model;
+    private ItemView view;
+
+    public ItemPresenter(ItemModel model, ItemView view){
+        this.model = model;
+        this.view = view;
+    }
+
+    public void loadItems(){
+        List<String> items = model.getItems();
+        view.showItems(items);
+    }
+}
