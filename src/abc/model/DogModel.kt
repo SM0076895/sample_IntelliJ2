@@ -3,8 +3,8 @@ package abc.model
 import java.util.*
 
 data class Dog(
-    val name: String?,
-    val breed: String,
-    val age: Int,
-    val color: String
+    var name: String?,
+    var breed: String,
+    var age: Int,
+    var color: String
 )

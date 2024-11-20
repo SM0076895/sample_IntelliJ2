@@ -8,73 +8,47 @@ class DogPresenter {
 
     val pi = 3.1416 //el modificador de acceso por default de Kotlin es public y no es necesario escribirlo1*/
 
-    val dogs: MutableList<Dog> = mutableListOf()
+    private val dogs: MutableList<Dog> = mutableListOf()
 
     /*public static void createDog(String param1, Int param2){
 
     }*/
 
+    /*fun createDog(name: String, breed: String, age: Int, color: String) {
+        val dogRegister = Dog(name = name, breed = breed, age = age, color = color)
+        dogs.add(dogRegister)
+    } Se puede reducir*/
 
 
-    fun createDog(name: String, breed: String, age: Int, color: String) {
-        val d1 = Dog(name = name, breed = breed, age = age, color = color)
-        dogs.add(d1)
-        print(dogs)
+
+    fun createDog(name: String, breed: String, age: Int, color: String) =
+        dogs.add(Dog(name = name, breed = breed, age = age, color = color))
+
+
+
+    fun removeDog(iD: Int){
+        dogs.removeAt(iD)
     }
 
-    fun emptyDog(){
-        //Empty registry
-        val d1 = Dog(name="", breed = "", age = 0, color = "")
-        dogs.add(d1)
-        println(dogs)
-    }
+    fun getDogs() = dogs
 
-    fun updName(name: String, newname: String){
+    fun updName(iD: Int, newname: String){
         //Update name
-        val d1 = Dog(
-            name = newname,
-            breed = TODO(),
-            age = TODO(),
-            color = TODO()
-        )
-        dogs.add(d1)
-        print(dogs)
-        //dogs.copy(name = newname)
+        dogs[iD].name = newname
     }
 
-    fun updBreed(name: String, newbreed: String){
+    fun updBreed(iD: Int, newbreed: String){
         //Update Breed
-        val d1 = Dog(
-            name = name, breed = newbreed,
-            age = TODO(),
-            color = TODO()
-        )
-        dogs.add(d1)
-        print(dogs)
-        //dogs.copy(name = name, breed = newbreed)
+        dogs[iD].breed = newbreed
     }
 
-    fun updAge(name: String, newage: Int){
+    fun updAge(iD: Int, newage: Int){
         //Update Age
-        val d1 = Dog(
-            name = name, age = newage,
-            breed = TODO(),
-            color = TODO()
-        )
-        dogs.add(d1)
-        print(dogs)
-        //dogs.copy(name = name, age = newage)
+        dogs[iD].age = newage
     }
 
-    fun updColor(name: String, newcolor: String){
+    fun updColor(iD: Int, newcolor: String){
         //Update Color
-        val d1 = Dog(
-            name = name, color = newcolor,
-            breed = TODO(),
-            age = TODO()
-        )
-        dogs.add(d1)
-        print(dogs)
-        //dogs.copy(name = name, color = newcolor)
+        dogs[iD].color = newcolor
     }
 }
